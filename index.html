@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <title>SN-Lang: Sanskrit Inspired Programming</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="https://bhashabytes.github.io/" class="site-logo" aria-label="BhashaBytes Home">
+    <img src="logo.png" alt="BhashaBytes Logo" />
+  </a>
+  <h1>SN-Lang: Sanskrit-Inspired Programming</h1>
+
+  <div class="intro-card">
+    <p>
+      Welcome to <strong>SN-Lang</strong> – a programming language designed especially for Sanskrit speakers!
+      SN-Lang makes coding more intuitive by using Sanskrit words and their transliterations as keywords,
+      instead of English-based Python syntax. It’s beginner-friendly and runs fully on Python via a translation layer.
+    </p>
+    <p>
+      Write code below, run it instantly, and explore SN-Lang’s features with live examples. Learning programming
+      has never been this friendly!
+    </p>
+  </div>
+
+  <div class="container">
+    <textarea id="snCode" rows="10" placeholder="Type your Sanskrit code here...">दर्शय("Hello SN-Lang!")</textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <pre id="output">Output will appear here...</pre>
+  </div>
+
+  <h2>Documentation & Examples</h2>
+  <div class="docs">
+    <h3>Print (दर्शय / darshaya)</h3>
+    <pre>दर्शय("Hello World")</pre>
+
+    <h3>Functions (निरूपय / nirupaya)</h3>
+    <pre>निरूपय योगः(a, b):
+    निवर्तय a + b
+दर्शय("फलम् =", योगः(5, 3))</pre>
+
+    <h3>Input (गृहय / grahaya)</h3>
+    <pre>a = int(गृहय("संख्या १:"))
+b = int(गृहय("संख्या २:"))
+दर्शय("योगः =", a + b)</pre>
+
+    <h3>Conditionals</h3>
+    <pre>i = 5
+यदि i > 3:
+    दर्शय("i बृहत्")
+अन्यदि i == 3:
+    दर्शय("i समम्")
+अन्यथा:
+    दर्शय("i लघु")</pre>
+
+    <h3>Loops</h3>
+    <pre>अर्थम् x in [1,2,3]:
+    दर्शय("x =", x)
+i = 0
+यावत् i < 3:
+    दर्शय("i =", i)
+    i += 1</pre>
+
+    <h3>Loop Control</h3>
+    <pre>अर्थम् x in [1,2,3]:
+    यदि x == 2:
+        दर्शय("द्वितीयम् प्राप्तम्")
+        विच्छेद
+    अन्यथा:
+        दर्शय(x)</pre>
+
+    <h3>Booleans & None</h3>
+    <pre>यदि सत्य:
+    दर्शय("true")
+अन्यदि मिथ्या:
+    दर्शय("false")
+दर्शय("शून्यम् =", शून्य)</pre>
+
+    <h3>Exceptions</h3>
+    <pre>प्रयत्न:
+    1 / 0
+विना ZeroDivisionError:
+    दर्शय("शून्येन भागः न शक्यः")
+अन्ततः:
+    दर्शय("एतत् नित्यं भवति")</pre>
+
+    <h3>Imports</h3>
+    <pre>आयातय math रूपेण m
+दर्शय(m.sqrt(4))</pre>
+
+    <p>Modify examples above and run your own SN-Lang code above!</p>
+  </div>
+
+  <h2>SN-Lang Keywords</h2>
+  <div class="reference-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Python</th>
+          <th>Sanskrit Script</th>
+          <th>Transliteration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>print</td><td>दर्शय</td><td>darshaya</td></tr>
+        <tr><td>input</td><td>गृहय</td><td>grahaya</td></tr>
+        <tr><td>if</td><td>यदि</td><td>yadi</td></tr>
+        <tr><td>elif</td><td>अन्यदि</td><td>anyadi</td></tr>
+        <tr><td>else</td><td>अन्यथा</td><td>anyatha</td></tr>
+        <tr><td>for</td><td>अर्थम्</td><td>artham</td></tr>
+        <tr><td>while</td><td>यावत्</td><td>yavat</td></tr>
+        <tr><td>def</td><td>निरूपय</td><td>nirupaya</td></tr>
+        <tr><td>class</td><td>वर्ग</td><td>varga</td></tr>
+        <tr><td>return</td><td>निवर्तय</td><td>nivartaya</td></tr>
+        <tr><td>break</td><td>विच्छेद</td><td>vichched</td></tr>
+        <tr><td>continue</td><td>प्रवर्तय</td><td>pravartaya</td></tr>
+        <tr><td>import</td><td>आयातय</td><td>aayataya</td></tr>
+        <tr><td>from</td><td>यस्मात्</td><td>yasmad</td></tr>
+        <tr><td>as</td><td>रूपेण</td><td>rupena</td></tr>
+        <tr><td>with</td><td>सह</td><td>saha</td></tr>
+        <tr><td>try</td><td>प्रयत्न</td><td>prayatna</td></tr>
+        <tr><td>except</td><td>विना</td><td>vina</td></tr>
+        <tr><td>finally</td><td>अन्ततः</td><td>antatah</td></tr>
+        <tr><td>True</td><td>सत्य</td><td>satya</td></tr>
+        <tr><td>False</td><td>मिथ्या</td><td>mithya</td></tr>
+        <tr><td>None</td><td>शून्य</td><td>shunya</td></tr>
+        <tr><td>or</td><td>वा</td><td>va</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let pyodideReady = false;
+    let pyodide;
+
+    async function loadPyodideAndPackages() {
+      pyodide = await loadPyodide();
+
+      pyodide.runPython(`
+import sys
+from js import document, prompt
+
+class OutputCatcher:
+    def write(self, s):
+        if s.strip():
+            document.getElementById("output").textContent += s + "\\n"
+    def flush(self): pass
+
+sys.stdout = OutputCatcher()
+sys.stderr = OutputCatcher()
+
+def input(msg=""):
+    resp = prompt(str(msg))
+    return "" if resp is None else str(resp)
+`);
+      pyodideReady = true;
+    }
+    loadPyodideAndPackages();
+
+    const mapping = {
+      "दर्शय": "print", "darshaya": "print",
+      "गृहय": "input", "grahaya": "input",
+      "यदि": "if", "yadi": "if",
+      "अन्यदि": "elif", "anyadi": "elif",
+      "अन्यथा": "else", "anyatha": "else",
+      "अर्थम्": "for", "artham": "for",
+      "यावत्": "while", "yavat": "while",
+      "निरूपय": "def", "nirupaya": "def",
+      "वर्ग": "class", "varga": "class",
+      "निवर्तय": "return", "nivartaya": "return",
+      "विच्छेद": "break", "vichched": "break",
+      "प्रवर्तय": "continue", "pravartaya": "continue",
+      "आयातय": "import", "aayataya": "import",
+      "यस्मात्": "from", "yasmad": "from",
+      "रूपेण": "as", "rupena": "as",
+      "सह": "with", "saha": "with",
+      "प्रयत्न": "try", "prayatna": "try",
+      "विना": "except", "vina": "except",
+      "अन्ततः": "finally", "antatah": "finally",
+      "सत्य": "True", "satya": "True",
+      "मिथ्या": "False", "mithya": "False",
+      "शून्य": "None", "shunya": "None",
+      "वा": "or", "va": "or"
+    };
+
+    function escapeRegExp(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function translate(code) {
+      for (let sn in mapping) {
+        const re = new RegExp(`(?<!\\w)${escapeRegExp(sn)}(?!\\w)`, 'gu');
+        code = code.replace(re, mapping[sn]);
+      }
+      return code;
+    }
+
+    async function runCode() {
+      if (!pyodideReady) {
+        alert("Pyodide is still loading...");
+        return;
+      }
+      document.getElementById("output").textContent = "";
+      const rawCode = document.getElementById("snCode").value;
+      const pyCode = translate(rawCode);
+
+      try {
+        await pyodide.runPythonAsync(pyCode);
+      } catch (err) {
+        document.getElementById("output").textContent += "Error: " + err + "\n";
+      }
+    }
+  </script>
+</body>
+</html>
